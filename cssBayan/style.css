@@ -33,6 +33,9 @@ form:hover label::after {
     display: block;
     color: black;
 }
+form:hover label.label-img::after {
+    display: none;
+}
 
 input {
     display: none;
@@ -51,6 +54,7 @@ label, img {
 
 label::after {
     display: none;
+    height: 100%;
     content: '\2716';
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
@@ -73,7 +77,14 @@ img {
 input:checked + label + img,input:hover + label + img {
     height: 50%;
     width: 100%;
-    padding: 2% 0;
+}
+label:hover + img {
+    height: 50%;
+    width: 100%;
+}
+img:hover {
+    height: 50%;
+    width: 100%;
 }
 
 input:checked + label::after,input:hover + label::after {
@@ -87,4 +98,38 @@ input:checked + label::after,input:hover + label::after {
 
 input:checked + label {
     color: black;
+}
+label.label-img::after {
+    display: none;
+}
+
+label.label-img {
+    display: block;
+    width: 0;
+    height: 0;
+    transition: 0.9s;
+    -webkit-transition: 0.9s;
+    -moz-transition: 0.9s;
+    -ms-transition: 0.9s;
+    -o-transition: 0.9s;
+}
+label.label-img > img {
+    width: 100%;
+    height: 100%;
+}
+
+input:checked + label + label.label-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+label:hover + label.label-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+label.label-img:hover {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
